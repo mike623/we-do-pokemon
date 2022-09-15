@@ -75,7 +75,7 @@ export default function MyModal({
                     <>
                       <div className="mt-2">
                         <p className="text-sm text-gray-500">
-                          {pokeDetail?.flavorTexts[0].flavor}
+                          {pokeDetail?.flavorTexts[0]?.flavor}
                         </p>
                       </div>
 

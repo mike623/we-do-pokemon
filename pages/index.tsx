@@ -37,7 +37,7 @@ const Home: NextPage<{
         <div>
           <img
             className="mx-auto h-12 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+            src="/assets/img/wedo-logo-colour.png"
             alt="Your Company"
           />
           <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
@@ -88,7 +88,7 @@ const Home: NextPage<{
         </div>
 
         {/* search result */}
-        <div className="gap-8 columns-2 md:columns-4">
+        <div className="gap-8 columns-1 sm:columns-2 md:columns-3">
           {pokes?.map((i) => {
             return (
               <div
