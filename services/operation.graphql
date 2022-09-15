@@ -1,0 +1,12 @@
+query getPokemonByName($pokemon: PokemonEnum!) {
+  getPokemon(pokemon: $pokemon, reverseFlavorTexts: true, takeFlavorTexts: 1) {
+    height
+    key
+  }
+}
+
+query pokemons($name: String!) {
+  getFuzzyPokemon(pokemon: $name) {
+    key
+  }
+}
