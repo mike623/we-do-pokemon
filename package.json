@@ -12,6 +12,7 @@
     "predev": "yarn generate"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.2",
     "chart.js": "^3.9.1",
     "graphql": "^16.6.0",
     "next": "12.3.0",

@@ -3573,7 +3573,7 @@ export type GetPokemonByNameQueryVariables = Exact<{
 }>;
 
 
-export type GetPokemonByNameQuery = { __typename?: 'Query', getPokemon: { __typename?: 'Pokemon', height: number, key: PokemonEnum, sprite: string, flavorTexts: Array<{ __typename?: 'Flavor', flavor: string }>, baseStats: { __typename?: 'Stats', hp: number, attack: number, defense: number, specialattack: number, specialdefense: number, speed: number }, evYields: { __typename?: 'EvYields', hp: number, attack: number, defense: number, specialattack: number, specialdefense: number, speed: number } } };
+export type GetPokemonByNameQuery = { __typename?: 'Query', getPokemon: { __typename?: 'Pokemon', height: number, key: PokemonEnum, sprite: string, types: Array<string>, flavorTexts: Array<{ __typename?: 'Flavor', flavor: string }>, baseStats: { __typename?: 'Stats', hp: number, attack: number, defense: number, specialattack: number, specialdefense: number, speed: number }, evYields: { __typename?: 'EvYields', hp: number, attack: number, defense: number, specialattack: number, specialdefense: number, speed: number } } };
 
 export type PokemonsQueryVariables = Exact<{
   name: Scalars['String'];
@@ -3581,7 +3581,7 @@ export type PokemonsQueryVariables = Exact<{
 }>;
 
 
-export type PokemonsQuery = { __typename?: 'Query', getFuzzyPokemon: Array<{ __typename?: 'Pokemon', key: PokemonEnum, sprite: string, flavorTexts: Array<{ __typename?: 'Flavor', flavor: string }> }> };
+export type PokemonsQuery = { __typename?: 'Query', getFuzzyPokemon: Array<{ __typename?: 'Pokemon', key: PokemonEnum, sprite: string, types: Array<string>, flavorTexts: Array<{ __typename?: 'Flavor', flavor: string }> }> };
 
 
 export const GetPokemonByNameDocument = gql`
@@ -3609,6 +3609,7 @@ export const GetPokemonByNameDocument = gql`
       specialdefense
       speed
     }
+    types
   }
 }
     `;
@@ -3624,6 +3625,7 @@ export const PokemonsDocument = gql`
     flavorTexts {
       flavor
     }
+    types
   }
 }
     `;

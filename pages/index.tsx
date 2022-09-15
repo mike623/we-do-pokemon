@@ -1,7 +1,7 @@
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   GetPokemonByNameDocument,
   GetPokemonByNameQuery,
@@ -12,6 +12,8 @@ import {
 } from "../components/pokemon-urql";
 import { getPokeByName } from "../services/gql";
 import styles from "../styles/Home.module.css";
+import { Dialog, Transition } from "@headlessui/react";
+import MyModal from "../components/PokeDetailModal";
 
 const Home: NextPage<{
   poke?: GetPokemonByNameQuery["getPokemon"];
@@ -21,6 +23,8 @@ const Home: NextPage<{
   const [name, setName] = useState(defaultName);
   const [r] = usePokemonsQuery({ variables: { name, page: currentPage } });
   const pokes = r.data?.getFuzzyPokemon;
+  let [isOpen, setIsOpen] = useState(false);
+  let [pokeKey, setPokeKey] = useState<PokemonEnum>();
 
   return (
     <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -89,6 +93,11 @@ const Home: NextPage<{
               <div
                 key={i.key}
                 className="max-w-sm rounded overflow-hidden shadow-lg"
+                role="button"
+                onClick={() => {
+                  setIsOpen((p) => !p);
+                  setPokeKey(i.key);
+                }}
               >
                 <img className="w-full" src={i.sprite} alt={i.key} />
                 <div className="px-6 py-4">
@@ -116,6 +125,8 @@ const Home: NextPage<{
             );
           })}
         </div>
+
+        <MyModal pokemon={pokeKey} isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     </div>
   );

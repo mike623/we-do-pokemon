@@ -8,6 +8,7 @@ query getPokemonByName($pokemon: PokemonEnum!) {
     }
     baseStats { hp attack defense specialattack specialdefense speed }
     evYields { hp attack defense specialattack specialdefense speed }
+    types
   }
 }
 
@@ -17,6 +18,7 @@ query pokemons($name: String!, $page: Int) {
     sprite
     flavorTexts {
       flavor
-    } 
+    }
+    types 
   }
 }
