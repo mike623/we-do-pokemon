@@ -12,11 +12,14 @@
     "predev": "yarn generate"
   },
   "dependencies": {
+    "chart.js": "^3.9.1",
     "graphql": "^16.6.0",
     "next": "12.3.0",
     "react": "18.2.0",
+    "react-chartjs-2": "^4.3.1",
     "react-dom": "18.2.0",
-    "urql": "^3.0.3"
+    "urql": "^3.0.3",
+    "windicss": "^3.5.6"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.12.0",
@@ -29,6 +32,7 @@
     "@types/react-dom": "18.0.6",
     "eslint": "8.23.1",
     "eslint-config-next": "12.3.0",
-    "typescript": "4.8.3"
+    "typescript": "4.8.3",
+    "windicss-webpack-plugin": "^1.7.6"
   }
 }

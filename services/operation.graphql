@@ -2,11 +2,21 @@ query getPokemonByName($pokemon: PokemonEnum!) {
   getPokemon(pokemon: $pokemon, reverseFlavorTexts: true, takeFlavorTexts: 1) {
     height
     key
+    sprite
+    flavorTexts {
+      flavor
+    }
+    baseStats { hp attack defense specialattack specialdefense speed }
+    evYields { hp attack defense specialattack specialdefense speed }
   }
 }
 
-query pokemons($name: String!) {
-  getFuzzyPokemon(pokemon: $name) {
+query pokemons($name: String!, $page: Int) {
+  getFuzzyPokemon(pokemon: $name, take: 20, offset: $page) {
     key
+    sprite
+    flavorTexts {
+      flavor
+    } 
   }
 }

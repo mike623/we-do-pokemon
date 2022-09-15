@@ -3573,14 +3573,15 @@ export type GetPokemonByNameQueryVariables = Exact<{
 }>;
 
 
-export type GetPokemonByNameQuery = { __typename?: 'Query', getPokemon: { __typename?: 'Pokemon', height: number, key: PokemonEnum } };
+export type GetPokemonByNameQuery = { __typename?: 'Query', getPokemon: { __typename?: 'Pokemon', height: number, key: PokemonEnum, sprite: string, flavorTexts: Array<{ __typename?: 'Flavor', flavor: string }>, baseStats: { __typename?: 'Stats', hp: number, attack: number, defense: number, specialattack: number, specialdefense: number, speed: number }, evYields: { __typename?: 'EvYields', hp: number, attack: number, defense: number, specialattack: number, specialdefense: number, speed: number } } };
 
 export type PokemonsQueryVariables = Exact<{
   name: Scalars['String'];
+  page?: InputMaybe<Scalars['Int']>;
 }>;
 
 
-export type PokemonsQuery = { __typename?: 'Query', getFuzzyPokemon: Array<{ __typename?: 'Pokemon', key: PokemonEnum }> };
+export type PokemonsQuery = { __typename?: 'Query', getFuzzyPokemon: Array<{ __typename?: 'Pokemon', key: PokemonEnum, sprite: string, flavorTexts: Array<{ __typename?: 'Flavor', flavor: string }> }> };
 
 
 export const GetPokemonByNameDocument = gql`
@@ -3588,6 +3589,26 @@ export const GetPokemonByNameDocument = gql`
   getPokemon(pokemon: $pokemon, reverseFlavorTexts: true, takeFlavorTexts: 1) {
     height
     key
+    sprite
+    flavorTexts {
+      flavor
+    }
+    baseStats {
+      hp
+      attack
+      defense
+      specialattack
+      specialdefense
+      speed
+    }
+    evYields {
+      hp
+      attack
+      defense
+      specialattack
+      specialdefense
+      speed
+    }
   }
 }
     `;
@@ -3596,9 +3617,13 @@ export function useGetPokemonByNameQuery(options: Omit<Urql.UseQueryArgs<GetPoke
   return Urql.useQuery<GetPokemonByNameQuery, GetPokemonByNameQueryVariables>({ query: GetPokemonByNameDocument, ...options });
 };
 export const PokemonsDocument = gql`
-    query pokemons($name: String!) {
-  getFuzzyPokemon(pokemon: $name) {
+    query pokemons($name: String!, $page: Int) {
+  getFuzzyPokemon(pokemon: $name, take: 20, offset: $page) {
     key
+    sprite
+    flavorTexts {
+      flavor
+    }
   }
 }
     `;
