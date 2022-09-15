@@ -81,6 +81,7 @@ const Home: NextPage<{
                 className="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Pikachu"
                 required
+                value={name}
               />
             </div>
           </div>
@@ -134,15 +135,19 @@ const Home: NextPage<{
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   let poke: GetPokemonByNameQuery["getPokemon"] | null = null;
-  if (Object.values(PokemonEnum).includes(context?.query.name as PokemonEnum)) {
-    const result = await getPokeByName({
-      pokemon: context.query.name as PokemonEnum,
-    });
-    if (result) poke = result;
-  }
-
+  const randomIdx = Math.floor(
+    Math.random() * Object.values(PokemonEnum).length
+  );
+  const name = context?.query.name || Object.values(PokemonEnum)[randomIdx];
+  // if (Object.values(PokemonEnum).includes(name as PokemonEnum)) {
+  //   const result = await getPokeByName({
+  //     pokemon: name as PokemonEnum,
+  //   });
+  //   if (result) poke = result;
+  // }
+  // console.log({ name });
   return {
-    props: { poke, pokes: [], defaultName: context?.query?.name || "" }, // will be passed to the page component as props
+    props: { poke, pokes: [], defaultName: name }, // will be passed to the page component as props
   };
 };
 
