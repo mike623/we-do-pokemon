@@ -11,10 +11,12 @@ import {
 import { ResultList } from "../components/ResultList";
 import { SearchBar } from "../components/SearchBar";
 import useInfiniteScroll from "react-infinite-scroll-hook";
+import { useRouter } from "next/router";
 
 const Home: NextPage<{
   defaultName: string;
 }> = ({ defaultName = "" }) => {
+  const router = useRouter();
   const [currentPage, setCurrentPage] = useState(0);
   const [name, setName] = useState(defaultName);
   const [result] = usePokemonsQuery({
@@ -24,7 +26,6 @@ const Home: NextPage<{
   const [searchResult, setSearchResult] = useState<
     PokemonsQuery["getFuzzyPokemon"]
   >([]);
-  // const isNewSearch = useRef(false);
 
   let [isOpen, setIsOpen] = useState(false);
   let [pokeKey, setPokeKey] = useState<PokemonEnum>();
@@ -47,6 +48,11 @@ const Home: NextPage<{
 
     setSearchResult((p) => [...p, ...dd]);
   }, [result.data]);
+
+  useEffect(() => {
+    router.query.name = name;
+    router.push(router);
+  }, [name]);
 
   return (
     <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
