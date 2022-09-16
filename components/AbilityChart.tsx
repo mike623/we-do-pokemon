@@ -20,6 +20,10 @@ ChartJS.register(
   Legend
 );
 
+// ChartJS.defaults.font = {
+//   family: "Open Sans",
+// };
+
 export function Ability({
   evYields,
   baseStats,
