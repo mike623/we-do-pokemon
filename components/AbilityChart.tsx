@@ -9,6 +9,7 @@ import {
   Legend,
 } from "chart.js";
 import { Radar } from "react-chartjs-2";
+import { EvYields, Stats } from "./pokemon-urql";
 
 ChartJS.register(
   RadialLinearScale,
@@ -19,19 +20,38 @@ ChartJS.register(
   Legend
 );
 
-export const data = {
-  labels: ["Thing 1", "Thing 2", "Thing 3", "Thing 4", "Thing 5", "Thing 6"],
-  datasets: [
-    {
-      label: "# of Votes",
-      data: [2, 9, 3, 5, 2, 3],
-      backgroundColor: "rgba(255, 99, 132, 0.2)",
-      borderColor: "rgba(255, 99, 132, 1)",
-      borderWidth: 1,
-    },
-  ],
-};
-
-export function Ability() {
+export function Ability({
+  evYields,
+  baseStats,
+}: {
+  evYields: EvYields;
+  baseStats: Stats;
+}) {
+  const data = {
+    labels: [
+      "hp",
+      "attack",
+      "defense",
+      "specialattack",
+      "specialdefense",
+      "speed",
+    ],
+    datasets: [
+      {
+        label: "Stats",
+        data: [
+          baseStats.hp,
+          baseStats.attack,
+          baseStats.defense,
+          baseStats.specialattack,
+          baseStats.specialdefense,
+          baseStats.speed,
+        ],
+        backgroundColor: "rgba(166, 094,046, 0.2)",
+        borderColor: "rgba(166,094,046, 1)",
+        borderWidth: 1,
+      },
+    ],
+  };
   return <Radar data={data} />;
 }
