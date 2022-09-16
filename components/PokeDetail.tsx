@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 const Ability = dynamic(() => import("./AbilityChart"), { ssr: true });
 import { GetPokemonByNameQuery } from "./pokemon-urql";
 import Star from "/public/assets/img/star.svg";
+import { PokeDesc } from "./PokeDesc";
 type PokeMeta = {
   rate: number;
   comment: string;
@@ -24,9 +25,7 @@ export const PokeDetail = ({ pokeDetail }: PokeDetailProps) => {
             <img className="mx-auto" src={pokeDetail.sprite} alt="sprite" />
           </div>
           <div className="my-3">
-            <p className="text-sm text-gray-500">
-              {pokeDetail?.flavorTexts[0]?.flavor}
-            </p>
+            <PokeDesc i={pokeDetail} />
           </div>
           <div className="flex items-center mt-1 ">
             {new Array(5).fill(0).map((_, idx) => {
