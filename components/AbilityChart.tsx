@@ -55,3 +55,4 @@ export function Ability({
   };
   return <Radar data={data} />;
 }
+export default Ability;

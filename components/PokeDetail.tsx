@@ -1,5 +1,6 @@
 import { useLocalStorage } from "../hooks/useLocalStorage";
-import { Ability } from "./AbilityChart";
+import dynamic from "next/dynamic";
+const Ability = dynamic(() => import("./AbilityChart"), { ssr: true });
 import { GetPokemonByNameQuery } from "./pokemon-urql";
 import Star from "/public/assets/img/star.svg";
 type PokeMeta = {
@@ -16,8 +17,8 @@ export const PokeDetail = ({ pokeDetail }: PokeDetailProps) => {
     {}
   );
   return (
-    <div>
-      <div className="flex">
+    <div className="mt-10">
+      <div className="block sm:flex">
         <div className="flex-1">
           <div>
             <img className="mx-auto" src={pokeDetail.sprite} alt="sprite" />
@@ -27,7 +28,7 @@ export const PokeDetail = ({ pokeDetail }: PokeDetailProps) => {
               {pokeDetail?.flavorTexts[0]?.flavor}
             </p>
           </div>
-          <div className="flex items-center mt-1">
+          <div className="flex items-center mt-1 ">
             {new Array(5).fill(0).map((_, idx) => {
               return (
                 <Star
@@ -52,7 +53,7 @@ export const PokeDetail = ({ pokeDetail }: PokeDetailProps) => {
           </div>
         </div>
 
-        <div className="flex-1">
+        <div className="flex-1 mt-10 sm:mt-0">
           <Ability
             baseStats={pokeDetail.baseStats}
             evYields={pokeDetail.evYields}

@@ -50,8 +50,7 @@ const Home: NextPage<{
   }, [result.data]);
 
   useEffect(() => {
-    router.query.name = name;
-    router.push(router);
+    router.push("/?name=" + name, undefined, { shallow: true });
   }, [name]);
 
   return (
