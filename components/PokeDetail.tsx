@@ -25,7 +25,7 @@ export const PokeDetail = ({ pokeDetail }: PokeDetailProps) => {
             <img className="mx-auto" src={pokeDetail.sprite} alt="sprite" />
           </div>
           <div className="my-3">
-            <PokeDesc i={pokeDetail} />
+            <PokeDesc poke={pokeDetail} />
           </div>
           <div className="flex items-center mt-1 ">
             {new Array(5).fill(0).map((_, idx) => {
@@ -33,10 +33,10 @@ export const PokeDetail = ({ pokeDetail }: PokeDetailProps) => {
                 <Star
                   key={idx}
                   onClick={() =>
-                    setUserPokeMeta((d) => ({
-                      ...d,
+                    setUserPokeMeta((meta) => ({
+                      ...meta,
                       [pokeDetail.key]: {
-                        ...d[pokeDetail.key],
+                        ...meta[pokeDetail.key],
                         rate: idx + 1,
                       },
                     }))

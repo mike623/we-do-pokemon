@@ -25,7 +25,7 @@ export function ResultList(props: ResultListProps) {
             <div className="my-5">
               <img className="mx-auto" src={i.sprite} alt={i.key} />
             </div>
-            <PokeDesc i={i}></PokeDesc>
+            <PokeDesc poke={i}></PokeDesc>
           </div>
         );
       })}
