@@ -72,6 +72,10 @@ npm run build:docker
 - [windicss-webpack-plugin](https://ghub.io/windicss-webpack-plugin): Share, explore and rating pokeman
 
 
+### Things can do more
+
+* PWA
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!
