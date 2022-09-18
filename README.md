@@ -1,34 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">Welcome to wedo-pokemon 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+</p>
 
-## Getting Started
+> Share, explore and rating pokeman 
 
-First, run the development server:
+### 🏠 [Homepage](https://wedo-pokemon-namike623.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
+
+## Install
+
+```sh
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```sh
+npm run start
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Run tests
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```sh
+npm run test
+```
+## Deployment (docker)
 
-## Learn More
+```sh
+npm run build:docker
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Author
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+👤 **MikeWong**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## Dependencies
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [@headlessui/react](https://ghub.io/@headlessui/react): A set of completely unstyled, fully accessible UI components for React, designed to integrate beautifully with Tailwind CSS.
+- [@svgr/webpack](https://ghub.io/@svgr/webpack): SVGR webpack loader.
+- [chart.js](https://ghub.io/chart.js): Simple HTML5 charts using the canvas element.
+- [graphql](https://ghub.io/graphql): A Query Language and Runtime which can target any service.
+- [next](https://ghub.io/next): The React Framework
+- [react](https://ghub.io/react): React is a JavaScript library for building user interfaces.
+- [react-chartjs-2](https://ghub.io/react-chartjs-2): React components for Chart.js
+- [react-dom](https://ghub.io/react-dom): React package for working with the DOM.
+- [react-infinite-scroll-hook](https://ghub.io/react-infinite-scroll-hook): A simple hook to create infinite scroll components
+- [urql](https://ghub.io/urql): A highly customizable and versatile GraphQL client for React
+- [windicss](https://ghub.io/windicss): Next generation utility-first CSS framework.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Dev Dependencies
+
+- [@graphql-codegen/cli](https://ghub.io/@graphql-codegen/cli): Share, explore and rating pokeman
+- [@graphql-codegen/typed-document-node](https://ghub.io/@graphql-codegen/typed-document-node): GraphQL Code Generator plugin for generating ready-to-use TypedDocumentNode based on GraphQL operations
+- [@graphql-codegen/typescript](https://ghub.io/@graphql-codegen/typescript): GraphQL Code Generator plugin for generating TypeScript types
+- [@graphql-codegen/typescript-operations](https://ghub.io/@graphql-codegen/typescript-operations): GraphQL Code Generator plugin for generating TypeScript types for GraphQL queries, mutations, subscriptions and fragments
+- [@graphql-codegen/typescript-urql](https://ghub.io/@graphql-codegen/typescript-urql): GraphQL Code Generator plugin for generating an introspection file for Urql&#39;s Schema Awareness
+- [@testing-library/jest-dom](https://ghub.io/@testing-library/jest-dom): Custom jest matchers to test the state of the DOM
+- [@testing-library/react](https://ghub.io/@testing-library/react): Simple and complete React DOM testing utilities that encourage good testing practices.
+- [@types/jest](https://ghub.io/@types/jest): TypeScript definitions for Jest
+- [@types/node](https://ghub.io/@types/node): TypeScript definitions for Node.js
+- [@types/react](https://ghub.io/@types/react): TypeScript definitions for React
+- [@types/react-dom](https://ghub.io/@types/react-dom): TypeScript definitions for React (react-dom)
+- [eslint](https://ghub.io/eslint): An AST-based pattern checker for JavaScript.
+- [eslint-config-next](https://ghub.io/eslint-config-next): ESLint configuration used by NextJS.
+- [jest](https://ghub.io/jest): Delightful JavaScript Testing.
+- [jest-environment-jsdom](https://ghub.io/jest-environment-jsdom): Share, explore and rating pokeman
+- [ts-jest](https://ghub.io/ts-jest): A Jest transformer with source map support that lets you use Jest to test projects written in TypeScript
+- [typescript](https://ghub.io/typescript): TypeScript is a language for application scale JavaScript development
+- [windicss-webpack-plugin](https://ghub.io/windicss-webpack-plugin): Share, explore and rating pokeman
+
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_

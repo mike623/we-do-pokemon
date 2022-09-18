@@ -1,5 +1,7 @@
 {
   "name": "wedo-pokemon",
+  "description": "Share, explore and rating pokeman ",
+  "homepage": "https://wedo-pokemon-namike623.vercel.app/",
   "version": "0.1.0",
   "private": true,
   "scripts": {
