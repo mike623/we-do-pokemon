@@ -4,6 +4,7 @@ const Ability = dynamic(() => import("./AbilityChart"), { ssr: true });
 import { GetPokemonByNameQuery } from "./pokemon-urql";
 import Star from "/public/assets/img/star.svg";
 import { PokeDesc } from "./PokeDesc";
+import { Suspense } from "react";
 type PokeMeta = {
   rate: number;
   comment: string;
@@ -53,10 +54,12 @@ export const PokeDetail = ({ pokeDetail }: PokeDetailProps) => {
         </div>
 
         <div className="flex-1 mt-10 sm:mt-0">
-          <Ability
-            baseStats={pokeDetail.baseStats}
-            evYields={pokeDetail.evYields}
-          />
+          <Suspense fallback={`Loading...`}>
+            <Ability
+              baseStats={pokeDetail.baseStats}
+              evYields={pokeDetail.evYields}
+            />
+          </Suspense>
         </div>
       </div>
     </div>
