@@ -32,6 +32,20 @@ export default function MyModal({
     setCopied(false);
   }, [pokemon]);
 
+  const onShareClick: () => void = () => {
+    if (navigator.share) {
+      const shareData = {
+        title: "We Do Poke",
+        text: "See This Poke!",
+        url: location.origin + "/poke/" + pokemon,
+      };
+      navigator.share(shareData);
+    } else {
+      navigator.clipboard.writeText(location.origin + "/poke/" + pokemon);
+    }
+    setCopied(true);
+  };
+
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -70,12 +84,7 @@ export default function MyModal({
                         <div
                           role="button"
                           className="flex"
-                          onClick={() => {
-                            setCopied(true);
-                            navigator.clipboard.writeText(
-                              location.origin + "/poke/" + pokemon
-                            );
-                          }}
+                          onClick={onShareClick}
                         >
                           <Share className="w-6 h-6" />
                         </div>
@@ -87,7 +96,7 @@ export default function MyModal({
                         )}
                       </div>
                     </div>
-                    <a role="button"  onClick={() => setIsOpen(false)} >
+                    <a role="button" onClick={() => setIsOpen(false)}>
                       <Close className="w-6 h-6 text-gray-900 fill-orange-100" />
                     </a>
                   </Dialog.Title>
