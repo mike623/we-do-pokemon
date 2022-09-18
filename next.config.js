@@ -20,6 +20,7 @@ const nextConfig = {
     });
     return config;
   },
+  output: process.env.DOCKER === "true" ? "standalone" : undefined,
 };
 
 module.exports = nextConfig;

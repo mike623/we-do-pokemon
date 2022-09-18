@@ -10,7 +10,8 @@
     "generate": "graphql-code-generator --config ./codegen.ts",
     "prestart": "yarn generate",
     "predev": "yarn generate",
-    "test": "jest"
+    "test": "jest",
+    "build:docker": "docker build -t we-do-pokemon-docker ."
   },
   "dependencies": {
     "@headlessui/react": "^1.7.2",
