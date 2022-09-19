@@ -31,8 +31,7 @@ export const PokeDetail = ({ pokeDetail }: PokeDetailProps) => {
           <div className="flex items-center mt-1 ">
             {new Array(5).fill(0).map((_, idx) => {
               return (
-                <Star
-                  key={idx}
+                <button
                   onClick={() =>
                     setUserPokeMeta((meta) => ({
                       ...meta,
@@ -42,12 +41,16 @@ export const PokeDetail = ({ pokeDetail }: PokeDetailProps) => {
                       },
                     }))
                   }
-                  className={`w-10 h-10 ${
-                    idx + 1 <= userPokeMeta?.[pokeDetail.key]?.rate
-                      ? "text-yellow-400"
-                      : "text-gray-300 dark:text-gray-500"
-                  }`}
-                />
+                  key={idx}
+                >
+                  <Star
+                    className={`w-10 h-10 ${
+                      idx + 1 <= userPokeMeta?.[pokeDetail.key]?.rate
+                        ? "text-yellow-400"
+                        : "text-gray-300 dark:text-gray-500"
+                    }`}
+                  />
+                </button>
               );
             })}
           </div>
